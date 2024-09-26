@@ -1,8 +1,10 @@
 import
-	{
-		QMainWindow, QWidget, QBoxLayout, Direction, AlignmentFlag,
-		QLabel, QPushButton, QPixmap
-	} from "@nodegui/nodegui";
+{
+	QMainWindow, QMenuBar, QMenu, QAction,
+	QWidget, QBoxLayout, Direction, AlignmentFlag,
+	QLabel, QPushButton, QPixmap,
+	QApplication,
+} from "@nodegui/nodegui";
 import * as fs from "fs";
 
 
@@ -20,8 +22,29 @@ export class App
 		const window = new QMainWindow();
 		window.setWindowTitle( "Hello NodeGui" );
 		window.setStyleSheet( this.styleSheet() );
+		window.setMenuBar( this.menuBar() );
 		window.setCentralWidget( this.centralWidget() );
 		window.show();
+	}
+
+	menuBar(): QMenuBar
+	{
+		const action = new QAction();
+		action.setText( "Exit" );
+		action.addEventListener( "triggered", () => { this.onFileExit(); } );
+
+		const menu = new QMenu();
+		menu.setTitle( 'File' );
+		menu.addAction( action );
+
+		const menuBar = new QMenuBar();
+		menuBar.addMenu( menu );
+		return menuBar;
+	}
+
+	onFileExit()
+	{
+		QApplication.instance().quit();
 	}
 
 	styleSheet(): string
