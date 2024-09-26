@@ -1,0 +1,19 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Qode Process",
+			"type": "node",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/qode",
+			"windows": {
+				"runtimeExecutable": "${workspaceRoot}/node_modules/.bin/qode.cmd"
+			},
+			"args": [
+				"build/main.js"
+			],
+			"outputCapture": "std"
+		}
+	]
+}

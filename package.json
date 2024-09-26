@@ -1,0 +1,17 @@
+{
+	"name": "nodegui-vscode-starter",
+	"description": "NodeGui VSCode starter project",
+	"version": "1.0.0",
+	"type": "module",
+	"keywords": [
+		"nodegui"
+	],
+	"author": "Richard Ronteltap",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^22.7.1"
+	},
+	"dependencies": {
+		"@nodegui/nodegui": "^0.67.0"
+	}
+}
