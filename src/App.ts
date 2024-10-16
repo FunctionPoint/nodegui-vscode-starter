@@ -1,6 +1,6 @@
 import
 {
-	QMainWindow, QMenuBar, QMenu, QAction,
+	QMainWindow, QIcon, QMenuBar, QMenu, QAction,
 	QWidget, QBoxLayout, Direction, AlignmentFlag,
 	QLabel, QPushButton, QPixmap,
 	QApplication,
@@ -14,17 +14,24 @@ export class App
 
 	start()
 	{
-		this.showWindow();
+		const window = this.createWindow();
+		window.show();
 	}
 
-	showWindow()
+	createWindow(): QMainWindow
 	{
 		const window = new QMainWindow();
 		window.setWindowTitle( "Hello NodeGui" );
+		window.setWindowIcon( this.icon() );
 		window.setStyleSheet( this.styleSheet() );
 		window.setMenuBar( this.menuBar() );
 		window.setCentralWidget( this.centralWidget() );
-		window.show();
+		return window;
+	}
+
+	icon(): QIcon
+	{
+		return new QIcon( 'assets/logo.ico' );
 	}
 
 	menuBar(): QMenuBar
