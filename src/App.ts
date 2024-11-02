@@ -11,6 +11,8 @@ import * as fs from "fs";
 export class App
 {
 	myGreetLabel?: QLabel;
+	colorIndex = 0;
+	colors = [ "black", "red", "green", "blue" ];
 
 	start()
 	{
@@ -104,7 +106,9 @@ export class App
 
 	onButton()
 	{
-		this.myGreetLabel?.setInlineStyle( "color: yellow;" );
+		this.colorIndex = ( this.colorIndex + 1 ) % this.colors.length;
+		const color = "color: " + this.colors[ this.colorIndex ] + ";"
+		this.myGreetLabel?.setInlineStyle( color );
 	}
 
 };
